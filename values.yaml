@@ -1,23 +1,11 @@
 nameOverride: ""
 fullnameOverride: ""
 
-# language: R
-language: python
-
-# jupyter:
-# 
-#   image:
-#     repository: syoh/dask-notebook
-#     tag: latest
-#   serviceType: ClusterIP
-#   servicePort: 80
-#   targetPort: 8888
-
 scheduler:
 
   image:
-    repository: syoh/dask-worker
-    # repository: syoh/r-notebook
+    # repository: syoh/dask-worker
+    repository: syoh/r-notebook
     tag: b6fdd5dae6cb
     # pullPolicy: IfNotPresent
     pullPolicy: Always
@@ -36,8 +24,8 @@ scheduler:
 notebook:
 
   image:
-    repository: syoh/dask-notebook
-    # repository: syoh/r-notebook
+    # repository: syoh/dask-notebook
+    repository: syoh/r-notebook
     tag: b6fdd5dae6cb
     # pullPolicy: IfNotPresent
     pullPolicy: Always
@@ -58,8 +46,8 @@ worker:
 
   replicaCount: 2
   image:
-    repository: syoh/dask-worker
-    # repository: syoh/r-worker
+    # repository: syoh/dask-worker
+    repository: syoh/r-worker
     tag: b6fdd5dae6cb
     # pullPolicy: IfNotPresent
     pullPolicy: Always
