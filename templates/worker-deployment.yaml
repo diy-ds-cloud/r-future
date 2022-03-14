@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "diy.fullname" . }}-worker
+  labels:
+    app: {{ template "diy.name" . }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: {{ template "diy.chart" . }}
+    component: worker
+spec:
+  replicas: {{ .Values.worker.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "diy.name" . }}
+      release: {{ .Release.Name | quote }}
+      component: worker
+  template:
+    metadata:
+      labels:
+        app: {{ template "diy.name" . }}
+        release: {{ .Release.Name | quote }}
+        component: worker
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
+          {{- if eq .Values.language "python" }}
+          args:
+            - dask-worker
+            - {{ include "diy.fullname" . }}-scheduler:{{ .Values.scheduler.controller.targetPort }}
+            - --no-dashboard
+            - --dashboard-address
+            - "8790"
+          {{ else if eq .Values.language "R" }}
+          command: ["/bin/sh", "-c"]
+          args:
+            - >
+              /opt/conda/bin/future-vars.sh 
+              --run-mode worker 
+              --scheduler {{ include "diy.fullname" . }}-notebook 
+              --port {{ .Values.notebook.controller.targetPort }}
+          {{ end -}}
+          resources:
+            {{- toYaml .Values.worker.resources | nindent 12 }}
