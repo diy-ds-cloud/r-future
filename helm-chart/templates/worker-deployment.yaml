@@ -32,6 +32,6 @@ spec:
               /opt/conda/bin/future-vars.sh 
               --run-mode worker 
               --scheduler {{ include "diy.fullname" . }}-notebook 
-              --port {{ .Values.notebook.controller.targetPort }}
+              --port {{ .Values.notebook.scheduler.targetPort }}
           resources:
             {{- toYaml .Values.worker.resources | nindent 12 }}

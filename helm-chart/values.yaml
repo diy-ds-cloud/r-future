@@ -1,44 +1,23 @@
 nameOverride: ""
 fullnameOverride: ""
 
-scheduler:
-
-  image:
-    # repository: syoh/dask-worker
-    repository: syoh/r-notebook
-    tag: b6fdd5dae6cb
-    # pullPolicy: IfNotPresent
-    pullPolicy: Always
-  resources: {}
-
-  ui:
-    # serviceType: ClusterIP
-    serviceType: LoadBalancer
-    servicePort: 8787
-    targetPort: 8787
-
-  controller:
-    servicePort: 8786
-    targetPort: 8786
-
 notebook:
 
   image:
-    # repository: syoh/dask-notebook
-    repository: syoh/r-notebook
-    tag: b6fdd5dae6cb
+    repository: dddlab/r-future
+    tag: rstudio-527d840
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
 
-  ui:
+  rstudio:
     hashedPassword: "sha1:3c5a4b522718:bf63e22afd2f2d08d9ef0262f69697c9fa4baa2c"
     # serviceType: ClusterIP
     serviceType: LoadBalancer
     servicePort: 80
     targetPort: 8888
 
-  controller:
+  scheduler:
     servicePort: 11562
     targetPort: 11562
 
@@ -46,9 +25,8 @@ worker:
 
   replicaCount: 2
   image:
-    # repository: syoh/dask-worker
-    repository: syoh/r-worker
-    tag: b6fdd5dae6cb
+    repository: dddlab/r-future
+    tag: worker-527d840
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
