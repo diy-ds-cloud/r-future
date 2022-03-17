@@ -52,7 +52,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
           buildArgs:
-            - BUILD_STAGE=worker
+            BUILD_STAGE=worker
       -
         name: Create Rstudio image tag
         id: rstudio_meta
@@ -70,4 +70,4 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
           buildArgs:
-            - BUILD_STAGE=rstudio
+            BUILD_STAGE=rstudio
