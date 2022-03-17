@@ -1,3 +1,5 @@
+ARG BUILD_STAGE=worker
+
 FROM jupyter/r-notebook:b6fdd5dae6cb as worker
 
 COPY --chown=${NB_UID}:${NB_GID} \
@@ -35,5 +37,7 @@ RUN curl --silent -L --fail \
 
 COPY --chown=${NB_UID}:${NB_GID} \
     scripts/startup.R ${HOME}/work/
+
+FROM ${BUILD_STAGE} AS final
 
 USER ${NB_UID}

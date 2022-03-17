@@ -1,0 +1,20 @@
+# https://github.com/jupyterhub/chartpress#configuration
+charts:
+  - name: helm-chart
+    imagePrefix: dddlab/r-future-
+    images:
+      worker:
+        contextPath: images/
+        dockerfilePath: images/Dockerfile
+        buildArgs:
+          BUILD_STAGE: "worker"
+        valuesPath:
+          - worker.image.repository
+      rstudio:
+        contextPath: images/
+        dockerfilePath: images/Dockerfile
+        buildArgs:
+          BUILD_STAGE: "rstudio"
+
+        valuesPath:
+          - notebook.image.repository

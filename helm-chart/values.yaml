@@ -4,7 +4,7 @@ fullnameOverride: ""
 notebook:
 
   image:
-    repository: dddlab/k8s-rstudio:v0.0.1-n007.h58a1783
+    repository: dddlab/r-future-rstudio:0.0.3-n000.hdbc49a2
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
@@ -24,7 +24,7 @@ worker:
 
   replicaCount: 2
   image:
-    repository: dddlab/k8s-worker:v0.0.1-n007.h58a1783
+    repository: dddlab/r-future-worker:0.0.3-n000.hdbc49a2
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
