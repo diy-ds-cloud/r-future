@@ -14,7 +14,7 @@ charts:
     # path such as "." as well but if matching <organization>/<repo> will be
     # assumed to be a separate GitHub repository.
     repo:
-      git: .
+      git: diy-ds-cloud/r-future
       published: https://diy-ds-cloud.github.io/r-future
     # Additional paths that when modified should lead to an updated Chart.yaml
     # version, other than the chart directory in <chart name> or any path that
