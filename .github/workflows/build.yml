@@ -2,8 +2,9 @@ name: Publish helm chart and docker images
 
 on:
   pull_request:
+    branches: [ main, chartpress-action ]
   push:
-    branches: [ chartpress-action ]
+    branches: [ main, chartpress-action ]
 
 jobs:
   # Builds and pushes docker images to DockerHub, packages the Helm chart and
