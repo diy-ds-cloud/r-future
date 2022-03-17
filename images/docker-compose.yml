@@ -4,9 +4,9 @@ services:
 
   r-worker:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
-      target: r-worker
+      target: worker
     image: r-future:worker-latest
     command: >
       bash -c "
@@ -20,7 +20,7 @@ services:
 
   rstudio:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
       target: rstudio
     image: r-future:rstudio-latest

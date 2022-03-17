@@ -1,16 +1,12 @@
-####### r-worker
-
-FROM jupyter/r-notebook:b6fdd5dae6cb AS r-worker
+FROM jupyter/r-notebook:b6fdd5dae6cb as worker
 
 COPY --chown=${NB_UID}:${NB_GID} \
     etc/future-vars.sh /opt/conda/bin/future-vars.sh
 
 RUN Rscript -e "install.packages(c('future', 'future.apply','doFuture'), repos='http://cran.us.r-project.org')"
 
-####### rstudio
+FROM worker as rstudio
 
-FROM r-worker AS rstudio
-    
 RUN pip install --no-cache-dir \
         jupyter-server-proxy==3.2.0 \
         jupyter-rsession-proxy==2.0.1 && \
@@ -26,16 +22,16 @@ RUN curl --silent -L --fail \
     rm /tmp/rstudio.deb && \
     apt-get clean
 
-RUN mamba clean -tipsy && \
-    jupyter lab clean && \
-    jlpm cache clean && \
-    npm cache clean --force && \
-    find /opt/conda/ -type f,l -name '*.a' -delete && \
-    find /opt/conda/ -type f,l -name '*.pyc' -delete && \
-    find /opt/conda/ -type f,l -name '*.js.map' -delete && \
-    rm -rf /opt/conda/pkgs && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+# RUN mamba clean -tipsy && \
+#     jupyter lab clean && \
+#     jlpm cache clean && \
+#     npm cache clean --force && \
+#     find /opt/conda/ -type f,l -name '*.a' -delete && \
+#     find /opt/conda/ -type f,l -name '*.pyc' -delete && \
+#     find /opt/conda/ -type f,l -name '*.js.map' -delete && \
+#     rm -rf /opt/conda/pkgs && \
+#     fix-permissions "${CONDA_DIR}" && \
+#     fix-permissions "/home/${NB_USER}"
 
 COPY --chown=${NB_UID}:${NB_GID} \
     scripts/startup.R ${HOME}/work/
