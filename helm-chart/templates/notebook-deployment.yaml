@@ -31,10 +31,10 @@ spec:
             - > 
               /opt/conda/bin/future-vars.sh 
               --run-mode scheduler 
-              --port {{ .Values.notebook.controller.targetPort }}
+              --port {{ .Values.notebook.scheduler.targetPort }}
               --n-workers {{ .Values.worker.replicaCount }};
               /usr/local/bin/start-notebook.sh
-              --ServerApp.password="{{ .Values.notebook.ui.hashedPassword }}"
+              --ServerApp.password="{{ .Values.notebook.rstudio.hashedPassword }}"
               --LabApp.default_url="/rstudio"
           resources:
             {{- toYaml .Values.notebook.resources | nindent 12 }}

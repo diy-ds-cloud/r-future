@@ -9,14 +9,14 @@ metadata:
     chart: {{ template "diy.chart" . }}
     component: notebook
 spec:
-  type: {{ .Values.notebook.ui.serviceType }}
+  type: {{ .Values.notebook.rstudio.serviceType }}
   ports:
-    - name: {{ include "diy.fullname" .}}-ui
-      port: {{ .Values.notebook.ui.servicePort }}
-      targetPort: {{ .Values.notebook.ui.targetPort }}
-    - name: {{ include "diy.fullname" .}}-controller
-      port: {{ .Values.notebook.controller.servicePort }}
-      targetPort: {{ .Values.notebook.controller.targetPort }}
+    - name: {{ include "diy.fullname" .}}-rstudio
+      port: {{ .Values.notebook.rstudio.servicePort }}
+      targetPort: {{ .Values.notebook.rstudio.targetPort }}
+    - name: {{ include "diy.fullname" .}}-scheduler
+      port: {{ .Values.notebook.scheduler.servicePort }}
+      targetPort: {{ .Values.notebook.scheduler.targetPort }}
   selector:
     app: {{ template "diy.name" . }}
     release: {{ .Release.Name | quote }}

@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "diy.fullname" . }}-notebook:{{ .Values.notebook.ui.servicePort }}']
+      args: ['{{ include "diy.fullname" . }}-notebook:{{ .Values.notebook.rstudio.servicePort }}']
   restartPolicy: Never
