@@ -4,7 +4,7 @@ fullnameOverride: ""
 notebook:
 
   image:
-    repository: dddlab/k8s-rstudio:set-by-chartpress
+    repository: dddlab/k8s-rstudio:v0.0.1-n003.h2a5ec59
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
@@ -24,7 +24,7 @@ worker:
 
   replicaCount: 2
   image:
-    repository: dddlab/k8s-worker:set-by-chartpress
+    repository: dddlab/k8s-worker:v0.0.1-n003.h2a5ec59
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
