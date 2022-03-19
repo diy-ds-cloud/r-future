@@ -2,6 +2,9 @@
 charts:
   - name: helm-chart
     imagePrefix: dddlab/r-future-
+    repo:
+      git: diy-ds-cloud/r-future
+      published: https://diy-ds-cloud.github.io/r-future
     images:
       worker:
         contextPath: images/
