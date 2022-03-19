@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# from https://github.com/jupyterhub/binderhub/blob/3ccb21af73b8a42ea44226b6e5cd5c8b94bf2fdc/ci/publish
+
 # This script publishes the Helm chart to the JupyterHub Helm chart repo and
 # pushes associated built docker images to Docker hub using chartpress.
 # --------------------------------------------------------------------------

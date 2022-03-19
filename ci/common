@@ -1,5 +1,6 @@
 #!/bin/sh
-# Use https://www.shellcheck.net/ to reduce mistakes if you make changes to this file.
+
+# from https://github.com/jupyterhub/binderhub/blob/3ccb21af73b8a42ea44226b6e5cd5c8b94bf2fdc/ci/common
 
 setup_helm() {
     helm_version="${1}"
