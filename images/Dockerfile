@@ -1,6 +1,7 @@
 ARG BUILD_STAGE=worker
 
-FROM jupyter/r-notebook:b6fdd5dae6cb as worker
+# FROM jupyter/r-notebook:b6fdd5dae6cb as worker
+FROM jupyter/r-notebook:aa14e4498c6b as worker
 
 COPY --chown=${NB_UID}:${NB_GID} \
     etc/future-vars.sh /opt/conda/bin/future-vars.sh
