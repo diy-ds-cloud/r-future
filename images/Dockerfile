@@ -3,12 +3,18 @@ ARG BUILD_STAGE=worker
 # FROM jupyter/r-notebook:b6fdd5dae6cb as worker
 FROM jupyter/r-notebook:aa14e4498c6b as worker
 
+ARG DIR_PREFIX=.
+
 COPY --chown=${NB_UID}:${NB_GID} \
-    etc/future-vars.sh /opt/conda/bin/future-vars.sh
+    ${DIR_PREFIX}/etc/future-vars.sh /opt/conda/bin/future-vars.sh
+
+COPY --chown=${NB_UID}:${NB_GID} . ${HOME}/work/
 
 RUN Rscript -e "install.packages(c('future', 'future.apply','doFuture'), repos='http://cran.us.r-project.org')"
 
 FROM worker as rstudio
+
+ARG DIR_PREFIX=.
 
 RUN pip install --no-cache-dir \
         jupyter-server-proxy==3.2.0 \
@@ -36,8 +42,10 @@ RUN curl --silent -L --fail \
 #     fix-permissions "${CONDA_DIR}" && \
 #     fix-permissions "/home/${NB_USER}"
 
-COPY --chown=${NB_UID}:${NB_GID} \
-    scripts/startup.R ${HOME}/work/
+# COPY --chown=${NB_UID}:${NB_GID} \
+#     ${DIR_PREFIX}/scripts/startup.R ${HOME}/work/
+
+COPY --chown=${NB_UID}:${NB_GID} . ${HOME}/work/
 
 FROM ${BUILD_STAGE} AS final
 

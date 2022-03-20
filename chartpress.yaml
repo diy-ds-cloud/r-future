@@ -7,17 +7,19 @@ charts:
       published: https://diy-ds-cloud.github.io/r-future
     images:
       worker:
-        contextPath: images/
+        contextPath: .
         dockerfilePath: images/Dockerfile
         buildArgs:
           BUILD_STAGE: "worker"
+          DIR_PREFIX: "images"
         valuesPath:
           - worker.image.repository
       rstudio:
-        contextPath: images/
+        contextPath: .
         dockerfilePath: images/Dockerfile
         buildArgs:
           BUILD_STAGE: "rstudio"
+          DIR_PREFIX: "images"
 
         valuesPath:
           - notebook.image.repository
