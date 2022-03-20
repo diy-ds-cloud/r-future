@@ -14,7 +14,7 @@ PUBLISH_ARGS="--push --publish-chart\
     --platform linux/amd64 \
     "
 
-cd helm-chart
+# cd helm-chart
 # chartpress use git to push to our Helm chart repository, which is the gh-pages
 # branch of jupyterhub/helm-chart. We have installed a private SSH key within
 # the ~/.ssh folder with permissions to push to jupyterhub/helm-chart.
