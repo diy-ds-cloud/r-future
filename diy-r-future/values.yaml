@@ -4,7 +4,7 @@ fullnameOverride: ""
 notebook:
 
   image:
-    repository: dddlab/r-future-rstudio:set-by-chartpress
+    repository: dddlab/r-future-rstudio:v0.0.1-n026.hf07b18e
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
@@ -24,7 +24,7 @@ worker:
 
   replicaCount: 2
   image:
-    repository: dddlab/r-future-worker:set-by-chartpress
+    repository: dddlab/r-future-worker:v0.0.1-n026.hf07b18e
     # pullPolicy: IfNotPresent
     pullPolicy: Always
   resources: {}
