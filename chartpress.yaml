@@ -1,6 +1,6 @@
 # https://github.com/jupyterhub/chartpress#configuration
 charts:
-  - name: helm-chart
+  - name: diy-r-future
     imagePrefix: dddlab/r-future-
     repo:
       git: diy-ds-cloud/r-future
