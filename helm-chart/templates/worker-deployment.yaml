@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.worker.image.repository }}"
           imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
           command: ["/bin/sh", "-c"]
           args:
