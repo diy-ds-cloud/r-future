@@ -12,7 +12,7 @@ set -eux
 PUBLISH_ARGS="--push --publish-chart\
     --builder docker-buildx \
     --platform linux/amd64 \
-    ${MORE_ARGS}"
+    "
 
 # cd helm-chart
 # chartpress use git to push to our Helm chart repository, which is the gh-pages
