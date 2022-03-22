@@ -5,8 +5,8 @@
 # meaning.
 # ref: https://github.com/pages-themes/minimal
 # _config.yaml
-title: Our example Helm chart repo
-description: A chart repo for storing charts.
+title: Do-it-yourself Data Science Computing in the Cloud with R
+description: This helm chart deploys customized R future-based distributed computing platform on a Kubernetes cluster.
 theme: minima
 url: "https://diy-ds-cloud.github.io/r-future"
 repo_name: r-future
