@@ -5,7 +5,7 @@
 # meaning.
 # ref: https://github.com/pages-themes/minimal
 # _config.yaml
-title: Do-it-yourself Data Science Computing in the Cloud with R
+title: DIY Cloud Computing with R
 description: This helm chart deploys customized R future-based distributed computing platform on a Kubernetes cluster.
 theme: minima
 url: "https://diy-ds-cloud.github.io/r-future"
