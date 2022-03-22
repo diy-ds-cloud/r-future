@@ -39,7 +39,8 @@ if [[ $GITHUB_REF != refs/tags/* ]]; then
 else
     # Setting a tag explicitly enforces a rebuild if this tag had already been
     # built and we wanted to override it.
-    chartpress $PUBLISH_ARGS --tag "${GITHUB_REF:10}" --extra-message "${EXTRA_MESSAGE}"
+    LATEST_COMMIT_TITLE=$(git log -1 --pretty=%B | head -n1)
+    chartpress $PUBLISH_ARGS --tag "${GITHUB_REF:10}" --extra-message "${LATEST_COMMIT_TITLE}"
 fi
 
 # Let us log the changes chartpress did, it should include replacements for
