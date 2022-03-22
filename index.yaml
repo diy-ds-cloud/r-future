@@ -3,6 +3,16 @@ entries:
   diy-r-future:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-03-22T17:14:59.235663618Z"
+    description: A Helm chart for Kubernetes
+    digest: 85b28c57a16b4ed3cb509ac03beb729d29f4a4c0322f5a6bc98e10b806a18d17
+    name: diy-r-future
+    type: application
+    urls:
+    - https://diy-ds-cloud.github.io/r-future/diy-r-future-0.0.1-n042.ha70b04b.tgz
+    version: 0.0.1-n042.ha70b04b
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-03-22T11:04:40.051465391Z"
     description: A Helm chart for Kubernetes
     digest: 153c3a928086cb1b5c3c58fefcc4ee5c81a371556dd75cc3efc433634b4560a3
@@ -51,4 +61,4 @@ entries:
     urls:
     - https://diy-ds-cloud.github.io/r-future/diy-r-future-0.0.1-n036.h9489f77.tgz
     version: 0.0.1-n036.h9489f77
-generated: "2022-03-22T11:04:40.050987787Z"
+generated: "2022-03-22T17:14:59.23510411Z"
