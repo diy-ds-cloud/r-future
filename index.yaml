@@ -13,6 +13,16 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2022-03-23T08:41:27.696651709Z"
+    description: DIY Cloud Computing with R
+    digest: 6486398c8d89b3805f642ae32e6ff61940d4e4724ff6e958625a0f0189967813
+    name: diy-r-future
+    type: application
+    urls:
+    - https://diy-ds-cloud.github.io/r-future/diy-r-future-0.0.2-n005.h0584fb1.tgz
+    version: 0.0.2-n005.h0584fb1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2022-03-23T08:19:13.802162914Z"
     description: DIY Cloud Computing with R
     digest: 4b45a5cf4cd1fdeaee0b31624d5451a6d8c2d82f0dbf385d241f7d1bd193414c
@@ -111,4 +121,4 @@ entries:
     urls:
     - https://diy-ds-cloud.github.io/r-future/diy-r-future-0.0.1-n036.h9489f77.tgz
     version: 0.0.1-n036.h9489f77
-generated: "2022-03-23T08:19:13.801583611Z"
+generated: "2022-03-23T08:41:27.696099107Z"
