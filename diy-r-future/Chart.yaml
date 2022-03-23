@@ -1,6 +1,6 @@
 apiVersion: v2
 name: diy-r-future
-description: A Helm chart for Kubernetes
+description: DIY Cloud Computing with R
 
 # A chart can be either an 'application' or a 'library' chart.
 #
