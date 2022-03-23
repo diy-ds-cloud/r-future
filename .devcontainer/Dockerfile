@@ -31,9 +31,7 @@ RUN \
     rm kubectl && \
     \
     # install helm
-    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash && \
-    helm repo add dask https://helm.dask.org/ && \
-    helm repo update
+    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 USER ${NB_USER}
 
@@ -43,3 +41,5 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     echo "export EDITOR='vim'" >> $HOME/.zshrc && \
     \
     pip install nbgitpuller
+
+ENV SHELL=/usr/bin/zsh
