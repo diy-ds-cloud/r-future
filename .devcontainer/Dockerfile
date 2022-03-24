@@ -4,7 +4,7 @@ USER root
 
 RUN \
     apt-get update && \
-    apt-get install -y curl neovim apt-transport-https ca-certificates gnupg zsh && \
+    apt-get install -y --no-install-recommends curl neovim apt-transport-https ca-certificates gnupg zsh && \
     \
     # install yadm
     git clone https://github.com/TheLocehiliosan/yadm.git /usr/local/share/yadm && \
