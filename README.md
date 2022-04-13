@@ -2,9 +2,9 @@
 
 
 ```bash
+USER_ID="syoh@ucsb.edu"
 PROJECT_ID="testing-sandbox-324502"
 REGION_CODE="us-central1-a"
-USER_ID="syoh@ucsb.edu"
 HELM_CHART_VERSION="0.0.2-n009.hcb36596"
 
 echo "Creating Kubernetes cluster"
