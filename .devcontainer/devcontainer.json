@@ -14,8 +14,7 @@
 		"ms-toolsai.jupyter",
 		"ms-toolsai.jupyter-keymap",
 		"redhat.vscode-yaml",
-		"ms-kubernetes-tools.vscode-kubernetes-tools",
-		"hashicorp.terraform"
+		"ms-kubernetes-tools.vscode-kubernetes-tools"
 	],
 
 	"settings": {

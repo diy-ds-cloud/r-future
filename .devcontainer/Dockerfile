@@ -10,6 +10,10 @@ RUN \
     git clone https://github.com/TheLocehiliosan/yadm.git /usr/local/share/yadm && \
     ln -s /usr/local/share/yadm/yadm /usr/local/bin/yadm && \
     \
+    # install jq
+    wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /opt/conda/bin/jq && \
+    chmod a+x /opt/conda/bin/jq && \
+    \
     # install gh (GitHub CLI)
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
