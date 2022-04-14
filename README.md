@@ -26,6 +26,5 @@ helm install myrelease r-future/diy-r-future --version "${HELM_CHART_VERSION}" -
 
 SERVICE_IP=$(kubectl get svc myrelease-diy-r-future-notebook --namespace default --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
 echo "Rstudio is available at URL: http://$SERVICE_IP:80"
-
 ```
 https://cloud.google.com/docs/terraform
