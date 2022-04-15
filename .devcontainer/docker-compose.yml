@@ -23,7 +23,7 @@ services:
       # - DOCKER_STACKS_JUPYTER_CMD=lab
 
     volumes:
-      - ${PWD}:/home/jovyan/work
+      - ${PWD}:/home/jovyan/r-future
 
     # default password is "diy-cloud" (without the quotes)
     command:

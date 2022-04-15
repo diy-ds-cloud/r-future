@@ -31,20 +31,6 @@ RUN curl --silent -L --fail \
     rm /tmp/rstudio.deb && \
     apt-get clean
 
-# RUN mamba clean -tipsy && \
-#     jupyter lab clean && \
-#     jlpm cache clean && \
-#     npm cache clean --force && \
-#     find /opt/conda/ -type f,l -name '*.a' -delete && \
-#     find /opt/conda/ -type f,l -name '*.pyc' -delete && \
-#     find /opt/conda/ -type f,l -name '*.js.map' -delete && \
-#     rm -rf /opt/conda/pkgs && \
-#     fix-permissions "${CONDA_DIR}" && \
-#     fix-permissions "/home/${NB_USER}"
-
-# COPY --chown=${NB_UID}:${NB_GID} \
-#     ${DIR_PREFIX}/scripts/startup.R ${HOME}/work/
-
 COPY --chown=${NB_UID}:${NB_GID} . ${HOME}/work/
 
 FROM ${BUILD_STAGE} AS final
