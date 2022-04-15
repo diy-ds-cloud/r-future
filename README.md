@@ -1,5 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/diy-ds-cloud/r-future/main?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fdiy-ds-cloud%252Fr-future%26urlpath%3Dlab%252Ftree%252Fr-future%252F%26branch%3Dmain)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/diy-ds-cloud/r-future/wip?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fdiy-ds-cloud%252Fr-future%26urlpath%3Dlab%252Ftree%252Fr-future%252F%26branch%3Dwip)
+
 
 ```bash
 USER_ID="syoh@ucsb.edu"
@@ -13,11 +15,11 @@ echo "Step 1: logging in as user, ${USER_ID}"
 gcloud auth login "${USER_ID}" --no-browser --update-adc
 
 echo "Step 2: creating cluster under project, ${PROJECT_ID} in region, ${REGION_CODE}"
-terraform -chdir=work/cluster init
-terraform -chdir=work/cluster apply -var="project_id=${PROJECT_ID}" -var="region=${REGION_CODE}" -auto-approve
+terraform -chdir=r-future/cluster init
+terraform -chdir=r-future/cluster apply -var="project_id=${PROJECT_ID}" -var="region=${REGION_CODE}" -auto-approve
 
-CLUSTER_NAME=$(terraform -chdir=work/cluster output -raw kubernetes_cluster_name)
-gcloud container clusters get-credentials ${CLUSTER_NAME}
+CLUSTER_NAME=$(terraform -chdir=r-future/cluster output -raw kubernetes_cluster_name)
+gcloud container clusters get-credentials ${CLUSTER_NAME} --zone=${REGION_CODE} --project=${PROJECT_ID}
 
 echo "Step 3: deploying Rstudio application with Helm chart version, ${HELM_CHART_VERSION}"
 helm repo add r-future https://diy-ds-cloud.github.io/r-future
